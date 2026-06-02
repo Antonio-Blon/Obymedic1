@@ -31,6 +31,13 @@ Solucion tecnologica: Se desarrollará un Sistema Digital de Gestión de Histori
 •	Mostrar automáticamente los datos del paciente y fechas de atención. <br>
 •	Almacenar la información en una base de datos digital. <br>
 
+##  Imágenes del problema
+![Problema](recursos/ficha.png)
+
+---
+##  Imágenes del negocio
+![Negocio](recursos/consultorio.png)
+
 ## Requerimientos Funcionales
 | Requerimiento | Descripcion |
 |---|---|
