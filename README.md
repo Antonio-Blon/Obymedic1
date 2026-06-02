@@ -101,9 +101,6 @@ Obymedic_/
 └── Frontend/                       → Copia local de desarrollo (no se despliega)
 ```
 
-> El frontend está embebido dentro del Backend en `src/main/resources/static/`.
-> La carpeta `Frontend/` es solo para desarrollo local. Siempre sincronizar ambas antes de hacer commit.
-
 ## Base de datos
 
 El sistema cuenta con 5 tablas principales:
@@ -218,6 +215,4 @@ La app está desplegada en **Render** usando Docker. La base de datos en producc
 | Monitoreo | UptimeRobot | Mantiene la app activa |
 
 ## Sistema de backup
-
-- **Backup manual:** botón en el panel admin, descarga un archivo JSON con todos los pacientes y consultas.
 - **Backup automático:** todos los lunes a las 7:00 AM UTC el sistema envía un archivo JSON al correo configurado.
