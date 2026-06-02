@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <title>Registrar Consulta - OBYMEDIC</title>
+    <link rel="stylesheet" href="assets/css/registrar.css" />
+    <link rel="stylesheet" href="assets/css/toast.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/layout.css" />
+  </head>
+  <body>
+
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h1><i class="fa-solid fa-circle-plus"></i> Registrar Paciente</h1>
+        </div>
+        <a href="panel.html" class="close-link" title="Cerrar">
+          <i class="fa-solid fa-xmark"></i>
+        </a>
+      </header>
+
+      <div class="page-layout">
+        <aside class="sidebar" id="sidebar">
+          <nav class="sidebar-menu">
+            <a href="panel.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="pacientes.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar Paciente</a>
+            <a href="buscar-paciente.html" class="activo"><i class="fa-solid fa-circle-plus"></i> Registrar Paciente</a>
+            <a href="citas.html"><i class="fa-solid fa-calendar-days"></i> Calendario de Citas</a>
+          </nav>
+        </aside>
+
+        <main class="main-content">
+          <div class="page-wrapper">
+            <table class="hoja">
+              <tr>
+                <td colspan="15" class="td-header">
+                  <div class="header-inner">
+                    <span class="header-brand">OBYMED</span>
+                    <div class="header-center">
+                      <div class="header-title">TOPICO</div>
+                      <div class="header-sub">CONSULTIO MEDICO - OBSTETRICO</div>
+                    </div>
+                    <span class="header-brand">OBYMED</span>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="15" class="banner">CONSULTA EXTERNA</td>
+              </tr>
+
+              <tr>
+                <td class="lbl w125">NOMBRE Y APELLIDOS</td>
+                <td class="td-input" colspan="8">
+                  <input type="text" id="nombre_completo" name="nombre_completo"/>
+                </td>
+                <td class="lbl w65">DNI</td>
+                <td class="td-input w80" colspan="5">
+                  <input type="text" id="dni" name="dni" maxlength="8"/>
+                </td>
+              </tr>
+
+              <tr class="tr-error">
+                <td colspan="15" class="td-error">
+                  <div id="error-dni" class="error-msg" style="display:none;">
+                    <span id="error-dni-texto"></span>
+                  </div>
+                  <div id="warn-dni" class="warn-msg" style="display:none;">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span id="warn-dni-texto"></span>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="lbl" colspan="2">FECHA DE NACIMIENTO</td>
+                <td class="td-input" colspan="3">
+                  <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"/>
+                </td>
+                <td class="lbl w65">TELÉFONO</td>
+                <td class="td-input" colspan="5">
+                  <input type="text" id="telefono" name="telefono" maxlength="9"/>
+                </td>
+                <td class="lbl w50">EDAD</td>
+                <td class="td-input" colspan="3">
+                  <input type="text" id="edad" name="edad" readonly/>
+                </td>
+              </tr>
+
+              <tr class="tr-error">
+                <td colspan="15" class="td-error">
+                  <div id="error-telefono" class="error-msg" style="display:none;">
+                    <span id="error-telefono-texto"></span>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="lbl w65">DIRECCIÓN</td>
+                <td class="td-input" colspan="5">
+                  <input type="text" id="direccion" name="direccion"/>
+                </td>
+                <td class="lbl w62">PROVINCIA</td>
+                <td class="td-input" colspan="10">
+                  <input type="text" id="provincia" name="provincia"/>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="lbl" colspan="2">MOTIVO DE LA CONSULTA:</td>
+                <td class="lbl w55">FECHA :</td>
+                <td class="td-input w130" colspan="3">
+                  <input type="date" id="fecha_consulta" name="fecha_consulta"/>
+                </td>
+                <td class="lbl w65">DISTRITO</td>
+                <td class="td-input" colspan="8">
+                  <input type="text" id="distrito" name="distrito"/>
+                </td>
+              </tr>
+
+              <tr class="tr-error">
+                <td colspan="15" class="td-error">
+                  <div id="error-fecha-consulta" class="error-msg" style="display:none;">
+                    <span id="error-fecha-consulta-texto"></span>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="15" class="td-input td-area">
+                  <textarea id="motivo_consulta" name="motivo_consulta" class="area-field" rows="6"></textarea>
+                </td>
+              </tr>
+
+              <tr class="vitals-row">
+                <td class="lbl w90">EXAMEN FÍSICO</td>
+                <td class="lbl w30">P.A</td>
+                <td class="td-input w55"><input type="text" id="pa" name="pa" autocomplete="off"/></td>
+                <td class="lbl w30">F.C.</td>
+                <td class="td-input w55"><input type="text" id="fc" name="fc" autocomplete="off"/></td>
+                <td class="lbl w28">F.R</td>
+                <td class="td-input w50"><input type="text" id="fr" name="fr" autocomplete="off"/></td>
+                <td class="lbl w22">T°</td>
+                <td class="td-input w50"><input type="text" id="temperatura" name="temperatura" autocomplete="off"/></td>
+                <td class="lbl w34">PESO</td>
+                <td class="td-input w50"><input type="text" id="peso" name="peso" autocomplete="off" placeholder="kg"/></td>
+                <td class="lbl w34">TALLA</td>
+                <td class="td-input w50"><input type="text" id="talla" name="talla" autocomplete="off" placeholder="m"/></td>
+                <td class="lbl w34">SPO2</td>
+                <td class="td-input w50"><input type="text" id="spo2" name="spo2" autocomplete="off"/></td>
+              </tr>
+
+              <tr>
+                <td colspan="15" class="td-input td-area">
+                  <textarea id="examen_fisico" name="examen_fisico" class="area-field" rows="5"></textarea>
+                </td>
+              </tr>
+
+              <tr><td colspan="15" class="section-title">DIAGNÓSTICO:</td></tr>
+              <tr>
+                <td colspan="15" class="td-input td-area">
+                  <textarea id="diagnostico" name="diagnostico" class="area-field" rows="7"></textarea>
+                </td>
+              </tr>
+
+              <tr><td colspan="15" class="section-title">TRATAMIENTO:</td></tr>
+              <tr>
+                <td colspan="15" class="td-input td-area">
+                  <textarea id="tratamiento" name="tratamiento" class="area-field" rows="7"></textarea>
+                </td>
+              </tr>
+
+              <tr><td colspan="15" class="section-title">EXÁMENES AUXILIARES</td></tr>
+              <tr>
+                <td colspan="15" class="td-input td-area">
+                  <textarea id="examenes_auxiliares" name="examenes_auxiliares" class="area-field" rows="3"></textarea>
+                </td>
+              </tr>
+
+                <tr>
+  <td colspan="15" class="td-split-outer">
+    <table class="split-table">
+      <tr>
+        <td class="split-left">
+          <div class="split-row split-row-border">
+            <span class="lbl-sm">Próxima Cita</span>
+            <input type="date" id="proxima_cita" name="proxima_cita"/>
+          </div>
+          <div id="error-proxima-cita" class="error-msg" style="display:none; padding:2px 8px;">
+            <span id="error-proxima-cita-texto"></span>
+          </div>
+          <div class="split-row">
+            <span class="lbl-sm">Atención por:</span>
+            <select id="atencion_por" name="atencion_por" class="split-flex" style="border:none;background:transparent;font-family:inherit;font-size:inherit;width:100%">
+              <option value="Alberth Muños de la Flor|1">Alberth Muños de la Flor</option>
+              <option value="doc2|2">doc2</option>
+              <option value="doc3|3">doc3</option>
+              <option value="doc4|4">doc4</option>
+            </select>
+          </div>
+        </td>
+        <td class="split-right">
+          <div class="lbl-sm" style="margin-bottom:6px;">Firma y Sello:</div>
+          <img id="firmaImg" src="assets/img/doctor1.png" style="width:100%;max-height:80px;object-fit:contain;" alt="Firma"/>
+          <script>
+            document.getElementById('atencion_por').addEventListener('change', function() {
+              var num = this.value.split('|')[1] || '1';
+              document.getElementById('firmaImg').src = 'assets/img/doctor' + num + '.png';
+            });
+          </script>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+              <tr>
+                <td colspan="15" class="td-footer">
+                  <button type="button" class="btn-registrar" id="btn-registrar">REGISTRAR</button>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+        </main>
+      </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="assets/js/config.js"></script>
+  <script src="assets/js/transition.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/registrar.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OBYMEDIC — Crear cuenta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/login.css"/>
+  <style>
+    #btnToggle1, #btnToggle2 {
+      position: absolute;
+      right: 4px; top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      font-size: .88rem;
+      padding: 4px;
+      transition: color .2s;
+    }
+    #btnToggle1:hover, #btnToggle2:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<div class="bg-overlay"></div>
+<div class="particles" id="particles"></div>
+<div class="fog"></div>
+
+<div class="login-wrapper">
+  <div class="login-card">
+
+    <div class="brand">
+      <div class="brand-icon"><i class="fa-solid fa-user-plus"></i></div>
+      <div class="brand-name">OBY<span>MEDIC</span></div>
+      <p class="brand-sub">Crear cuenta de doctor</p>
+    </div>
+
+    <div id="errorReg" class="error-banner" style="display:none">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <span id="errorRegTexto"></span>
+    </div>
+
+    <div class="field-group">
+      <label><i class="fa-solid fa-id-card"></i> Nombre completo</label>
+      <input type="text" id="nombre" placeholder="Ej: Dra. María López" autocomplete="name"/>
+    </div>
+    <div class="field-group">
+      <label><i class="fa-solid fa-user"></i> Usuario</label>
+      <input type="text" id="username" placeholder="Ej: dra.lopez" autocomplete="username"/>
+    </div>
+    <div class="field-group">
+      <label><i class="fa-solid fa-lock"></i> Contraseña</label>
+      <div class="pass-wrapper">
+        <input type="password" id="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password"/>
+        <button type="button" id="btnToggle1"><i class="fa-solid fa-eye"></i></button>
+      </div>
+    </div>
+    <div class="field-group">
+      <label><i class="fa-solid fa-lock"></i> Repetir contraseña</label>
+      <div class="pass-wrapper">
+        <input type="password" id="confirm" placeholder="Repite tu contraseña" autocomplete="new-password"/>
+        <button type="button" id="btnToggle2"><i class="fa-solid fa-eye"></i></button>
+      </div>
+    </div>
+
+    <button class="btn-login" id="btnCrear">
+      <span class="btn-text"><i class="fa-solid fa-user-plus"></i> Crear cuenta</span>
+      <span class="btn-spinner" style="display:none"><i class="fa-solid fa-spinner fa-spin"></i> Creando...</span>
+    </button>
+
+    <div class="login-footer" style="margin-top:16px">
+      <a href="panel.html" style="color:rgba(255,255,255,0.3);font-size:.7rem;text-decoration:none">
+        ← Volver al panel
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/crear-cuenta.js"></script>
+<script>
+  const icons = ['fa-star','fa-circle','fa-heart','fa-plus'];
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const el = document.createElement('i');
+    el.className = `fa-solid ${icons[Math.floor(Math.random() * icons.length)]}`;
+    el.style.left = `${Math.random() * 100}%`;
+    el.style.animationDuration = `${12 + Math.random() * 18}s`;
+    el.style.animationDelay = `${Math.random() * 15}s`;
+    el.style.fontSize = `${0.15 + Math.random() * 0.4}rem`;
+    container.appendChild(el);
+  }
+</script>
+</body>
+</html>

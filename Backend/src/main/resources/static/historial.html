@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Historial | OBYMEDIC</title>
+  <link rel="stylesheet" href="assets/css/resultados.css">
+  <link rel="stylesheet" href="assets/css/toast.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="hamburger" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <h1><i class="fa-solid fa-folder-open"></i> Historial Médico</h1>
+    </div>
+    <a href="pacientes.html" class="close-link" title="Volver a Buscar">
+      <i class="fa-solid fa-xmark"></i>
+    </a>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-menu">
+        <a href="panel.html"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="pacientes.html" class="activo"><i class="fa-solid fa-magnifying-glass"></i> Buscar Paciente</a>
+        <a href="buscar-paciente.html"><i class="fa-solid fa-circle-plus"></i> Registrar Paciente</a>
+        <a href="citas.html"><i class="fa-solid fa-calendar-days"></i> Calendario de Citas</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div id="sin-consultas-mensaje" class="alert alert-info text-center" style="display: none;">
+        <i class="fa-solid fa-circle-info fa-2x mb-2"></i>
+        <h4>Aún no hizo un registro previo</h4>
+        <p>No se encontraron consultas para este paciente.</p>
+        <button id="btnNuevaConsultaMensaje" class="btn btn-primary mt-2">
+          <i class="fa-solid fa-plus-circle"></i> Nueva Consulta
+        </button>
+        <button id="btnEliminarSinConsultas" class="btn btn-danger mt-2 ms-2">
+          <i class="fa-solid fa-trash"></i> Eliminar Paciente
+        </button>
+      </div>
+
+      <form id="resultadoForm" class="resultado-form" style="display: none;">
+        <div class="form-group">
+          <label for="nombre">
+            <i class="fa-solid fa-user"></i>
+            Nombre:
+          </label>
+          <input type="text" id="nombre" placeholder="Nombre" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">
+            <i class="fa-solid fa-phone"></i>
+            Teléfono:
+          </label>
+          <input type="text" id="telefono" placeholder="Teléfono" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha">
+            <i class="fa-solid fa-calendar"></i>
+            Fecha de Consulta:
+          </label>
+          <input type="text" id="fecha" placeholder="Fecha" readonly>
+        </div>
+
+        <div class="button-row">
+          <button type="button" id="btnVolver" onclick="window.location.href='pacientes.html'">
+            <i class="fa-solid fa-arrow-left"></i>
+            Volver
+          </button>
+          <button type="button" id="btnMostrarConsulta">
+            <i class="fa-solid fa-folder-open"></i>
+            Mostrar Consulta
+          </button>
+          <button type="button" id="btnNuevaConsulta">
+            <i class="fa-solid fa-plus-circle"></i>
+            Nueva Consulta
+          </button>
+          <button type="button" id="btnExamenes">
+            <i class="fa-solid fa-flask"></i>
+            Exámenes de Laboratorio
+          </button>
+          <button type="button" id="btnEliminarPaciente">
+            <i class="fa-solid fa-trash"></i>
+            Eliminar Paciente
+          </button>
+        </div>
+
+        <div id="consultas-container" class="consultas-section" style="display: none;">
+          <h5><i class="fa-solid fa-list"></i> Consultas anteriores:</h5>
+          <div id="lista-consultas" class="list-group"></div>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Modal Exámenes de Laboratorio -->
+  <div id="modalExamenes" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.5);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
+    <div class="examen-modal-card">
+      <div class="examen-modal-header">
+        <h3><i class="fa-solid fa-flask"></i> Exámenes de Laboratorio</h3>
+        <button id="btnCerrarModal" class="examen-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="examen-tabs">
+        <button class="examen-tab active" id="tabSubir" onclick="switchTab('subir')"><i class="fa-solid fa-upload"></i> Subir Examen</button>
+        <button class="examen-tab" id="tabVer" onclick="switchTab('ver')"><i class="fa-solid fa-eye"></i> Ver Exámenes</button>
+      </div>
+
+      <!-- Panel Subir -->
+      <div id="panelSubir" class="examen-panel">
+        <div class="examen-field">
+          <label><i class="fa-solid fa-tag"></i> Título del examen</label>
+          <input type="text" id="examenTitulo" placeholder="Ej: Hemograma completo" />
+        </div>
+        <div class="examen-field">
+          <label><i class="fa-solid fa-calendar-check"></i> Fecha de subida</label>
+          <input type="text" id="examenFecha" readonly />
+        </div>
+        <div class="examen-field">
+          <label><i class="fa-solid fa-file-pdf"></i> Archivo PDF</label>
+          <input type="file" id="examenArchivo" accept=".pdf" />
+        </div>
+        <button class="examen-btn-subir" id="btnSubirExamen">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Subir Examen
+        </button>
+        <div id="examenMensaje" style="display:none;margin-top:10px;text-align:center;font-size:.85rem;color:#16a34a;"></div>
+      </div>
+
+      <!-- Panel Ver -->
+      <div id="panelVer" class="examen-panel" style="display:none;">
+        <div id="listaExamenes" class="examen-lista"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/transition.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/resultado.js?v=7"></script>
+  <script src="assets/js/sidebar.js"></script>
+</body>
+</html>

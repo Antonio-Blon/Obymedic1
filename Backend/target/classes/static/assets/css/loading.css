@@ -1,0 +1,164 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue1: #93c5fd;
+  --blue2: #3b82f6;
+  --navy:  #0d1b35;
+  --white: #fff;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #070f1e;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Fondo animado ── */
+.bg-layer {
+  position: fixed; inset: 0;
+  background: linear-gradient(135deg, #070f1e 0%, #0d1b35 35%, #1a2d52 65%, #1d4ed8 100%);
+  background-size: 300% 300%;
+  animation: bgShift 6s ease infinite;
+  z-index: 0;
+}
+@keyframes bgShift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ── Partículas ── */
+.particle {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: floatUp linear infinite;
+  z-index: 1;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(110vh) scale(1);   opacity: 0.12; }
+  100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+}
+
+/* ── Hexágonos decorativos ── */
+.hex {
+  position: fixed;
+  width: 80px; height: 80px;
+  opacity: 0.07;
+  animation: hexDrift linear infinite;
+  z-index: 1;
+}
+.hex svg { width: 100%; height: 100%; }
+@keyframes hexDrift {
+  0%   { transform: translateY(0)     rotate(0deg); }
+  100% { transform: translateY(-30px) rotate(360deg); }
+}
+
+/* ── Contenido ── */
+.splash {
+  position: relative; z-index: 10;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 26px;
+  text-align: center;
+  animation: fadeIn .6s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Icono central ── */
+.icon-wrap {
+  width: 110px; height: 110px;
+  background: rgba(147,197,253,.12);
+  border: 2px solid rgba(147,197,253,.35);
+  border-radius: 28px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  color: var(--blue1);
+  animation: iconPulse 2s ease-in-out infinite;
+  backdrop-filter: blur(8px);
+}
+@keyframes iconPulse {
+  0%,100% { box-shadow: 0 0 0 0    rgba(147,197,253,.4); }
+  50%      { box-shadow: 0 0 0 18px rgba(147,197,253,0); transform: scale(1.04); }
+}
+
+/* ── Nombre de marca ── */
+.brand-name {
+  color: var(--white);
+  font-size: 3rem; font-weight: 800;
+  letter-spacing: -1px; line-height: 1;
+  animation: slideUp .5s ease forwards .2s;
+  opacity: 0;
+}
+.brand-name span { color: var(--blue1); }
+
+.brand-sub {
+  color: rgba(255,255,255,.45);
+  font-size: .82rem; font-weight: 300;
+  letter-spacing: 3px; text-transform: uppercase;
+  animation: slideUp .5s ease forwards .4s;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Barra de progreso ── */
+.progress-track {
+  width: 260px; height: 4px;
+  background: rgba(255,255,255,.1);
+  border-radius: 99px; overflow: hidden;
+  animation: slideUp .5s ease forwards .6s;
+  opacity: 0;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1d4ed8, #3b82f6, #93c5fd);
+  border-radius: 99px;
+  animation: fillBar 2.2s cubic-bezier(.4,0,.2,1) forwards .8s;
+  width: 0;
+}
+@keyframes fillBar {
+  0%   { width: 0%; }
+  60%  { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* ── Dots ── */
+.dots {
+  display: flex; gap: 8px;
+  animation: slideUp .5s ease forwards .7s;
+  opacity: 0;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(147,197,253,.4);
+  animation: dotBlink 1.2s ease-in-out infinite;
+}
+.dot:nth-child(2) { animation-delay: .2s; }
+.dot:nth-child(3) { animation-delay: .4s; }
+@keyframes dotBlink {
+  0%,100% { background: rgba(147,197,253,.2); transform: scale(.8); }
+  50%      { background: var(--blue1);         transform: scale(1.2); }
+}
+
+/* ── Texto de estado ── */
+.status-text {
+  color: rgba(255,255,255,.35);
+  font-size: .75rem; font-weight: 300;
+  animation: textCycle 2s ease-in-out forwards .9s;
+  opacity: 0;
+}
+@keyframes textCycle {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  100% { opacity: .6; }
+}

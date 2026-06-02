@@ -1,0 +1,486 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(160deg, #eef2fb 0%, #e4ecf7 55%, #dae4f2 100%);
+  min-height: 100vh;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(90deg, #0d1b35 0%, #1a2d52 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 500;
+  box-shadow: 0 2px 16px rgba(13,27,53,0.5);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar-left h1 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hamburger {
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 10px;
+  width: 38px; height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #93c5fd;
+  transition: background .2s;
+}
+.hamburger:hover { background: rgba(255,255,255,0.22); }
+
+.close-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  color: #93c5fd;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.close-link:hover { background: rgba(255,255,255,0.22); transform: scale(1.1); }
+
+/* ── LAYOUT ── */
+.page-layout {
+  display: flex;
+  padding-top: 60px;
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed;
+  top: 60px; left: -260px;
+  width: 240px;
+  height: calc(100vh - 60px);
+  background: #fff;
+  box-shadow: 4px 0 20px rgba(13,27,53,0.1);
+  transition: left .3s ease;
+  z-index: 400;
+  overflow-y: auto;
+}
+.sidebar.open { left: 0; }
+
+.sidebar-menu {
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1e3a5f;
+  font-size: .88rem;
+  font-weight: 500;
+  transition: all .2s;
+}
+.sidebar-menu a i { width: 20px; font-size: 1rem; color: #3b82f6; }
+.sidebar-menu a:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+  transform: translateX(4px);
+}
+.sidebar-menu a.activo {
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+  color: #fff;
+  font-weight: 600;
+}
+.sidebar-menu a.activo i { color: #fff; }
+
+/* ── OVERLAY ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 300;
+  backdrop-filter: blur(2px);
+}
+.overlay.show { display: block; }
+
+/* ── MAIN ── */
+.main-content {
+  flex: 1;
+  padding: 32px 36px 40px;
+}
+
+/* ── CALENDAR HEADER ── */
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cal-nav h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  min-width: 220px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.btn-nav {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #5a3e2e;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(90,62,46,0.14);
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-nav:hover {
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(29,78,216,0.3);
+}
+
+.cal-legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: #5a3e2e;
+}
+.legend-item i { font-size: .7rem; }
+.legend-item.cita  i { color: #16a34a; }
+.legend-item.consulta i { color: #3b82f6; }
+.legend-item.hoy   i { color: #f59e0b; }
+
+/* ── CALENDAR GRID ── */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.cal-dow {
+  text-align: center;
+  font-size: .7rem;
+  font-weight: 700;
+  color: #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  padding: 8px 0 10px;
+}
+
+.cal-day {
+  background: #fff;
+  border-radius: 14px;
+  min-height: 80px;
+  padding: 10px 8px 8px;
+  cursor: default;
+  transition: transform .2s, box-shadow .2s;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(90,62,46,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid transparent;
+}
+
+.cal-day.empty {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.cal-day.other-month {
+  opacity: .35;
+}
+
+.cal-day.has-events {
+  cursor: pointer;
+}
+.cal-day.has-events:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(29,78,216,0.15);
+  border-color: #3b82f6;
+}
+
+.cal-day.today {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+.cal-day.today .day-num {
+  background: #f59e0b;
+  color: #fff;
+  border-radius: 50%;
+  width: 28px; height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-day.selected {
+  border-color: #8a6d5a;
+  box-shadow: 0 0 0 3px rgba(138,109,90,0.15);
+}
+
+.day-num {
+  font-size: .88rem;
+  font-weight: 600;
+  color: #3b2a1e;
+  line-height: 1;
+}
+
+.day-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+
+.badge-cita {
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: .64rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: transform .15s;
+}
+.badge-cita:hover { transform: scale(1.05); }
+
+.badge-consulta {
+  background: #dbeafe;
+  color: #2563eb;
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: .64rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: transform .15s;
+}
+.badge-consulta:hover { transform: scale(1.05); }
+
+.badge-realizada {
+  background: #ccfbf1;
+  color: #0d9488;
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: .64rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: transform .15s;
+}
+.badge-realizada:hover { transform: scale(1.05); }
+
+/* ── DETAIL PANEL ── */
+.detalle-panel {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 28px rgba(29,78,216,0.1);
+  animation: slideUp .3s ease;
+  border-left: 4px solid #3b82f6;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.detalle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f5ede6;
+}
+
+.detalle-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3b2a1e;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detalle-header h3 i { color: #c6b5a7; }
+
+.btn-cerrar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f5ede6;
+  color: #5a3e2e;
+  cursor: pointer;
+  font-size: .85rem;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-cerrar:hover { background: #dc2626; color: #fff; transform: scale(1.1); }
+
+.detalle-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scroll-behavior: smooth;
+}
+
+.detalle-lista::-webkit-scrollbar { width: 5px; }
+.detalle-lista::-webkit-scrollbar-track { background: #f5ede6; border-radius: 3px; }
+.detalle-lista::-webkit-scrollbar-thumb { background: #c6b5a7; border-radius: 3px; }
+.detalle-lista::-webkit-scrollbar-thumb:hover { background: #8a6d5a; }
+
+.detalle-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #faf7f5;
+  border-radius: 14px;
+  padding: 13px 16px;
+  transition: background .15s, transform .15s;
+  cursor: default;
+}
+.detalle-item:hover { background: #f0e8e0; transform: translateX(4px); }
+
+.detalle-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.avatar-cita      { background: #dcfce7; color: #16a34a; }
+.avatar-consulta  { background: #dbeafe; color: #2563eb; }
+.avatar-realizada { background: #ccfbf1; color: #0d9488; }
+
+.detalle-info { flex: 1; min-width: 0; }
+.detalle-nombre {
+  font-size: .88rem;
+  font-weight: 700;
+  color: #3b2a1e;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.detalle-meta {
+  font-size: .73rem;
+  color: #8a6d5a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.detalle-meta i { color: #c6b5a7; }
+
+.detalle-tipo {
+  font-size: .68rem;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tipo-cita      { background: #dcfce7; color: #16a34a; }
+.tipo-consulta  { background: #dbeafe; color: #2563eb; }
+.tipo-realizada { background: #ccfbf1; color: #0d9488; }
+
+/* ── SIN EVENTOS ── */
+.sin-eventos {
+  text-align: center;
+  padding: 28px 0;
+  color: #8a6d5a;
+}
+.sin-eventos i {
+  font-size: 2.5rem;
+  color: #c6b5a7;
+  margin-bottom: 10px;
+  display: block;
+}
+.sin-eventos p { font-size: .85rem; }
+
+/* ── RESPONSIVE ── */
+@media (min-width: 768px) {
+  .sidebar { left: 0; }
+  .hamburger { display: none; }
+  .main-content { margin-left: 240px; }
+  .overlay { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .cal-nav h2 { font-size: 1.05rem; min-width: 160px; }
+  .main-content { padding: 20px 14px 32px; }
+  .detalle-panel { padding: 18px 16px; }
+}
+
+@media (max-width: 560px) {
+  .cal-grid { gap: 4px; }
+  .cal-day { min-height: 62px; padding: 7px 4px 6px; border-radius: 10px; }
+  .day-num { font-size: .78rem; }
+  .badge-cita, .badge-consulta, .badge-realizada { font-size: .6rem; padding: 1px 5px; }
+  .cal-legend { gap: 12px; }
+  .cal-header { flex-direction: column; align-items: flex-start; }
+}

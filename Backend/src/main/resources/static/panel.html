@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Panel Principal — OBYMEDIC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/prueba.css" />
+  <link rel="stylesheet" href="assets/css/toast.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      Panel Principal — <strong>OBYMEDIC</strong>
+    </div>
+    <div class="topbar-right">
+      <div class="badge-date">
+        <i class="fa-regular fa-calendar"></i>
+        <span id="fecha-hoy"></span>
+      </div>
+      <a href="crear-cuenta.html" class="btn-crear-cuenta" id="btnCrearCuenta" title="Crear cuenta de doctor" style="display:none">
+        <i class="fa-solid fa-user-plus"></i> Crear cuenta
+      </a>
+      <a href="editar-perfil.html" class="btn-crear-cuenta" id="btnEditarPerfil" title="Editar mi perfil" style="display:none">
+        <i class="fa-solid fa-user-pen"></i> Mi perfil
+      </a>
+      <button class="btn-logout" onclick="logout()" title="Cerrar sesión">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="welcome-card">
+      <div class="welcome-icon">
+        <i class="fa-solid fa-stethoscope"></i>
+      </div>
+      <h1>Bienvenido, <span id="nombreDoctor">Doctor</span></h1>
+      <p>Sistema de Gestión de Consultas Obstétricas</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card warm">
+        <div class="stat-icon warm"><i class="fa-solid fa-users"></i></div>
+        <div class="stat-info">
+          <div class="stat-label">Pacientes registradas</div>
+          <div class="stat-value" id="cnt-pacientes">—</div>
+        </div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon blue"><i class="fa-solid fa-file-medical"></i></div>
+        <div class="stat-info">
+          <div class="stat-label">Consultas hoy</div>
+          <div class="stat-value" id="cnt-hoy">—</div>
+        </div>
+      </div>
+      <div class="stat-card rose">
+        <div class="stat-icon rose"><i class="fa-solid fa-calendar-check"></i></div>
+        <div class="stat-info">
+          <div class="stat-label">Próximas citas</div>
+          <div class="stat-value" id="cnt-citas">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2>Accesos Rápidos</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="quick-grid">
+      <a class="quick-card blue" href="pacientes.html">
+        <div class="quick-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="quick-title">Buscar Paciente</div>
+        <div class="quick-desc">Busca por DNI y accede al historial de consultas de la paciente.</div>
+        <div class="quick-link">Ver pacientes <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+
+      <a class="quick-card teal" href="buscar-paciente.html">
+        <div class="quick-icon"><i class="fa-solid fa-circle-plus"></i></div>
+        <div class="quick-title">Registrar Paciente</div>
+        <div class="quick-desc">Registra una nueva consulta obstétrica con todos los datos clínicos.</div>
+        <div class="quick-link">Registrar <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+
+<a class="quick-card green-card" href="citas.html">
+        <div class="quick-icon"><i class="fa-solid fa-calendar-days"></i></div>
+        <div class="quick-title">Calendario de Citas</div>
+        <div class="quick-desc">Visualiza en calendario los días con citas programadas y consultas realizadas.</div>
+        <div class="quick-link">Ver calendario <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+    </div>
+
+
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/transition.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/paciente.js"></script>
+  <script>
+    const esLegacy = !sessionStorage.getItem('doctorId') && !localStorage.getItem('doctorId');
+    if (esLegacy) document.getElementById('btnCrearCuenta').style.display = 'flex';
+    else document.getElementById('btnEditarPerfil').style.display = 'flex';
+  </script>
+</body>
+</html>

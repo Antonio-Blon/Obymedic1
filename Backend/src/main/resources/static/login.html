@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Iniciar Sesión | OBYMEDIC</title>
+  <link rel="stylesheet" href="assets/css/login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+
+  <div class="bg-overlay"></div>
+
+  <div class="particles" id="particles"></div>
+  <div class="fog"></div>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <div class="brand-name">OBY<span>MEDIC</span></div>
+        <p class="brand-sub">Sistema de Gestión Obstétrica</p>
+      </div>
+
+      <!-- Estado A: formulario clásico -->
+      <form id="loginForm" autocomplete="off" novalidate>
+
+        <div class="field-group">
+          <label for="inputUser"><i class="fa-solid fa-user"></i> Usuario</label>
+          <input type="text" id="inputUser" placeholder="Ingrese su usuario" autocomplete="off" required />
+        </div>
+
+        <div class="field-group">
+          <label for="inputPass"><i class="fa-solid fa-lock"></i> Contraseña</label>
+          <div class="pass-wrapper">
+            <input type="password" id="inputPass" placeholder="Ingrese su contraseña" autocomplete="off" required />
+            <button type="button" id="btnTogglePass">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="remember-row">
+          <label class="remember-label">
+            <input type="checkbox" id="chkRecordar" />
+            <span class="remember-box"></span>
+            Recordar cuenta en este navegador
+          </label>
+        </div>
+
+        <div id="loginError" class="error-banner" style="display:none">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          Usuario o contraseña incorrectos
+        </div>
+
+        <button type="submit" id="btnLogin" class="btn-login">
+          <span class="btn-text"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</span>
+          <span class="btn-spinner" style="display:none"><i class="fa-solid fa-spinner fa-spin"></i> Verificando...</span>
+        </button>
+
+      </form>
+
+      <!-- Estado B: selección de perfiles -->
+      <div id="perfilesSection" style="display:none">
+        <p class="perfiles-titulo">¿Quién eres?</p>
+        <div id="perfilesGrid" class="perfiles-grid"></div>
+
+        <div id="perfilPassPanel" class="perfil-pass-panel" style="display:none">
+          <div class="perfil-pass-header">
+            <div class="perfil-mini-avatar" id="perfilMiniAvatar"></div>
+            <span id="perfilNombreLabel"></span>
+          </div>
+          <div id="perfilesError" class="error-banner" style="display:none">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="perfilesErrorTexto">Contraseña incorrecta</span>
+          </div>
+          <div class="pass-wrapper">
+            <input type="password" id="perfilPass" placeholder="Contraseña" autocomplete="off"/>
+            <button type="button" id="btnTogglePerfilPass">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <button class="btn-login" id="btnPerfilIngresar" style="margin-top:10px">
+            <span class="btn-text"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</span>
+            <span class="btn-spinner" style="display:none"><i class="fa-solid fa-spinner fa-spin"></i> Verificando...</span>
+          </button>
+        </div>
+
+        <div class="perfiles-divider">o</div>
+        <button class="btn-admin-link" id="btnModoAdmin">Acceso administrador</button>
+      </div>
+
+      <div class="login-footer">
+        <i class="fa-solid fa-shield-halved"></i>
+        Acceso restringido — Solo personal autorizado
+      </div>
+
+    </div>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script>
+    const icons = ['fa-star','fa-circle','fa-heart','fa-plus'];
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const el = document.createElement('i');
+      el.className = `fa-solid ${icons[Math.floor(Math.random() * icons.length)]}`;
+      el.style.left = `${Math.random() * 100}%`;
+      el.style.animationDuration = `${12 + Math.random() * 18}s`;
+      el.style.animationDelay = `${Math.random() * 15}s`;
+      el.style.fontSize = `${0.15 + Math.random() * 0.4}rem`;
+      container.appendChild(el);
+    }
+  </script>
+</body>
+</html>

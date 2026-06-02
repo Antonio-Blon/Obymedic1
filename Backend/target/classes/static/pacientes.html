@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Buscar Paciente | OBYMEDIC</title>
+  <link rel="stylesheet" href="assets/css/buscar.css">
+  <link rel="stylesheet" href="assets/css/toast.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="hamburger" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <h1><i class="fa-solid fa-magnifying-glass"></i> Buscar Paciente</h1>
+    </div>
+    <a href="panel.html" class="close-link" title="Volver al panel">
+      <i class="fa-solid fa-xmark"></i>
+    </a>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-menu">
+        <a href="panel.html"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="pacientes.html" class="activo"><i class="fa-solid fa-magnifying-glass"></i> Buscar Paciente</a>
+        <a href="buscar-paciente.html"><i class="fa-solid fa-circle-plus"></i> Registrar Paciente</a>
+        <a href="citas.html"><i class="fa-solid fa-calendar-days"></i> Calendario de Citas</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="search-box">
+        <h2>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Buscar Paciente
+        </h2>
+        <input type="text" id="dni" placeholder="Ingrese número de DNI" />
+        <button type="button" id="btnBuscar">
+          <i class="fa-solid fa-search"></i>
+          BUSCAR
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Mini loader DNI -->
+  <div id="dniLoader" class="dni-loader" style="display:none">
+    <div class="dni-loader-box">
+      <div class="dni-spinner"></div>
+      <span>Cargando Datos</span>
+    </div>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/buscar.js"></script>
+  <script src="assets/js/sidebar.js"></script>
+</body>
+</html>

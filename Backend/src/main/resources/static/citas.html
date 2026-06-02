@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Calendario de Citas | OBYMEDIC</title>
+  <link rel="stylesheet" href="assets/css/citas.css" />
+  <link rel="stylesheet" href="assets/css/toast.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <h1><i class="fa-solid fa-calendar-days"></i> Calendario de Citas</h1>
+    </div>
+    <a href="panel.html" class="close-link" title="Volver al panel">
+      <i class="fa-solid fa-xmark"></i>
+    </a>
+  </header>
+
+  <div class="page-layout">
+
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-menu">
+        <a href="panel.html">
+          <i class="fa-solid fa-house"></i>
+          Inicio
+        </a>
+        <a href="pacientes.html">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Buscar Paciente
+        </a>
+        <a href="buscar-paciente.html">
+          <i class="fa-solid fa-circle-plus"></i>
+          Registrar Paciente
+        </a>
+        <a href="citas.html" class="activo">
+          <i class="fa-solid fa-calendar-days"></i>
+          Calendario de Citas
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+
+      <div class="cal-header">
+        <div class="cal-nav">
+          <button class="btn-nav" id="btnPrev" title="Mes anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <h2 id="cal-title">Cargando...</h2>
+          <button class="btn-nav" id="btnNext" title="Mes siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cal-legend">
+          <span class="legend-item cita">
+            <i class="fa-solid fa-circle"></i> Próxima cita
+          </span>
+          <span class="legend-item consulta">
+            <i class="fa-solid fa-circle"></i> Consulta realizada
+          </span>
+          <span class="legend-item hoy">
+            <i class="fa-solid fa-circle"></i> Hoy
+          </span>
+        </div>
+      </div>
+
+      <div class="cal-grid" id="calGrid">
+        <div class="cal-dow">Lun</div>
+        <div class="cal-dow">Mar</div>
+        <div class="cal-dow">Mié</div>
+        <div class="cal-dow">Jue</div>
+        <div class="cal-dow">Vie</div>
+        <div class="cal-dow">Sáb</div>
+        <div class="cal-dow">Dom</div>
+      </div>
+
+      <div id="detalle-panel" class="detalle-panel" style="display:none">
+        <div class="detalle-header">
+          <h3 id="detalle-fecha">
+            <i class="fa-solid fa-calendar-day"></i>
+            <span></span>
+          </h3>
+          <button class="btn-cerrar" id="btnCerrarDetalle" title="Cerrar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="detalle-lista" class="detalle-lista"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/transition.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/citas.js"></script>
+  <script src="assets/js/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <title>Ficha de Consulta | OBYMEDIC</title>
+    <link rel="stylesheet" href="assets/css/consulta.css" />
+    <link rel="stylesheet" href="assets/css/toast.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+  </head>
+  <body>
+
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h1><i class="fa-solid fa-file-medical"></i> Ficha de Consulta</h1>
+        </div>
+        <a href="#" class="close-link" id="linkVolver" title="Volver">
+          <i class="fa-solid fa-xmark"></i>
+        </a>
+      </header>
+
+      <div class="page-layout">
+
+        <aside class="sidebar" id="sidebar">
+          <nav class="sidebar-menu">
+            <a href="panel.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="pacientes.html"><i class="fa-solid fa-magnifying-glass"></i> Buscar Paciente</a>
+            <a href="buscar-paciente.html"><i class="fa-solid fa-circle-plus"></i> Registrar Paciente</a>
+            <a href="citas.html"><i class="fa-solid fa-calendar-days"></i> Calendario de Citas</a>
+          </nav>
+        </aside>
+
+        <main class="main-content">
+          <div class="page-wrapper">
+            <table class="hoja">
+
+              <tr>
+                <td colspan="3" class="td-header">
+                  <div class="header-inner">
+                    <div class="header-brand">OBYMED</div>
+                    <div class="header-center">
+                      <div class="header-title">TOPICO</div>
+                      <div class="header-subtitle">CONSULTIO MEDICO - OBSTETRICO</div>
+                    </div>
+                    <div class="header-brand">OBYMED</div>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3" class="banner">CONSULTA EXTERNA</td>
+              </tr>
+
+              <tr>
+                <td colspan="3" class="td-plain">
+                  <table class="inner-table">
+                    <tr>
+                      <td class="lbl td-w125">NOMBRE Y APELLIDOS</td>
+                      <td class="td-input-cell" style="width:55%">
+                        <input type="text" id="p-nombre" readonly />
+                      </td>
+                      <td class="lbl td-w65">TELÉFONO</td>
+                      <td class="td-input-cell">
+                        <input type="text" id="p-telefono" readonly />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3" class="td-plain">
+                  <table class="inner-table">
+                    <tr>
+                      <td class="lbl td-w65">DIRECCIÓN</td>
+                      <td class="td-input-cell">
+                        <input type="text" id="p-direccion" readonly />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3" class="td-plain">
+                  <table class="inner-table">
+                    <tr>
+                      <td class="lbl td-w65">DISTRITO</td>
+                      <td class="td-input-cell td-w110">
+                        <input type="text" id="p-distrito" readonly />
+                      </td>
+                      <td class="lbl td-w62">PROVINCIA</td>
+                      <td class="td-input-cell td-w110">
+                        <input type="text" id="p-provincia" readonly />
+                      </td>
+                      <td class="lbl td-w30">DNI</td>
+                      <td class="td-input-cell td-w80">
+                        <input type="text" id="p-dni" readonly />
+                      </td>
+                      <td class="lbl td-w28">F.N.</td>
+                      <td class="td-input-cell">
+                        <input type="date" id="p-fnac" readonly />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3" class="td-plain">
+                  <table class="inner-table">
+                    <tr>
+                      <td class="lbl td-w200">MOTIVO DE LA CONSULTA:</td>
+                      <td class="lbl td-w55">FECHA :</td>
+                      <td class="td-input-cell td-w130">
+                        <input type="date" id="fecha-consulta" readonly />
+                      </td>
+                      <td class="lbl td-w50">EDAD :</td>
+                      <td class="td-input-cell">
+                        <input type="text" id="p-edad" readonly />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="motivo" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="motivo" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="motivo" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="motivo" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="motivo" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="motivo" readonly /></td></tr>
+
+              <tr>
+                <td colspan="3" class="td-plain">
+                  <table class="inner-table">
+                    <tr>
+                      <td class="lbl td-w90">EXAMEN FÍSICO</td>
+                      <td class="lbl td-w30">P.A</td>
+                      <td class="td-input-cell td-w80"><input type="text" id="pa" readonly /></td>
+                      <td class="lbl td-w30">F.C.</td>
+                      <td class="td-input-cell td-w55"><input type="text" id="fc" readonly /></td>
+                      <td class="lbl td-w28">F.R</td>
+                      <td class="td-input-cell td-w50"><input type="text" id="fr" readonly /></td>
+                      <td class="lbl td-w22">T°</td>
+                      <td class="td-input-cell td-w50"><input type="text" id="temperatura" readonly /></td>
+                      <td class="lbl td-w34">PESO</td>
+                      <td class="td-input-cell td-w50"><input type="text" id="peso" readonly /></td>
+                      <td class="lbl td-w34">TALLA</td>
+                      <td class="td-input-cell td-w50"><input type="text" id="talla" readonly /></td>
+                      <td class="lbl td-w34">SPO2</td>
+                      <td class="td-input-cell td-w50"><input type="text" id="spo2" readonly /></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="examen" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="examen" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="examen" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="examen" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="examen" readonly /></td></tr>
+
+              <tr><td colspan="3" class="section-title">DIAGNÓSTICO:</td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="diagnostico" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="diagnostico" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="diagnostico" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="diagnostico" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="diagnostico" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="diagnostico" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="diagnostico" readonly /></td></tr>
+
+              <tr><td colspan="3" class="section-title">TRATAMIENTO:</td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="tratamiento" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="tratamiento" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="tratamiento" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="tratamiento" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="tratamiento" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="tratamiento" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="tratamiento" readonly /></td></tr>
+
+              <tr><td colspan="3" class="section-title">EXÁMENES AUXILIARES</td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="examenes" readonly /></td></tr>
+              <tr><td colspan="3" class="linea impar"><input type="text" class="linea-input" data-seccion="examenes" readonly /></td></tr>
+              <tr><td colspan="3" class="linea par"><input type="text" class="linea-input" data-seccion="examenes" readonly /></td></tr>
+
+              <tr>
+                <td colspan="3" class="td-plain" style="padding:0">
+                  <table class="inner-table" style="table-layout:fixed">
+                    <tr>
+                      <td class="td-split-left">
+                        <div class="split-row split-row--border">
+                          <span class="lbl-inline">Próxima Cita</span>
+                          <input type="date" id="proxima-cita" readonly />
+                        </div>
+                        <div class="split-row">
+                          <span class="lbl-inline">Atención por:</span>
+                          <input type="text" id="atencion-por" readonly />
+                        </div>
+                      </td>
+                      <td class="td-split-right">
+                        <div class="lbl-inline lbl-inline--block">Firma y Sello:</div>
+                        <img id="firmaImg" src="assets/img/doctor1.png" class="firma-img" alt="Firma y Sello"/>
+                        <textarea id="firma-sello" class="textarea-firma" style="display:none" readonly></textarea>
+                        <script>
+                          function actualizarFirma(valorGuardado) {
+                            var partes = (valorGuardado || '').split('|');
+                            var id = partes[1] || '1';
+                            document.getElementById('firmaImg').src = 'assets/img/doctor' + id + '.png';
+                          }
+                        </script>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+
+          <div class="botonera">
+            <button type="button" class="btn-volver" id="btnVolver">
+              <i class="fa-solid fa-arrow-left"></i> Volver
+            </button>
+            <button type="button" class="btn-imprimir" onclick="window.print()">
+              <i class="fa-solid fa-print"></i> Imprimir
+            </button>
+            <button type="button" class="btn-editar" id="btnEditar">
+              <i class="fa-solid fa-pen-to-square"></i> Editar
+            </button>
+            <button type="button" class="btn-guardar" id="btnGuardar" style="display:none">
+              <i class="fa-solid fa-floppy-disk"></i> Guardar
+            </button>
+            <button type="button" class="btn-cancelar" id="btnCancelar" style="display:none">
+              <i class="fa-solid fa-xmark"></i> Cancelar
+            </button>
+          </div>
+        </main>
+      </div>
+
+    <div class="overlay" id="overlay"></div>
+    <script src="assets/js/config.js"></script>
+  <script src="assets/js/transition.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/consulta2-detalle.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+  </body>
+</html>
