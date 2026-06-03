@@ -138,7 +138,7 @@ CREATE DATABASE obymedic;
 USE obymedic;
 
 CREATE TABLE pacientes (
-    id_paciente BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_paciente  AUTO_INCREMENT PRIMARY KEY,
     nombre_apellidos VARCHAR(150) NOT NULL,
     dni VARCHAR(8) NOT NULL UNIQUE,
     telefono VARCHAR(20),
@@ -152,8 +152,8 @@ CREATE TABLE pacientes (
 );
 
 CREATE TABLE consultas (
-    id_consulta BIGINT AUTO_INCREMENT PRIMARY KEY,
-    id_paciente BIGINT NOT NULL,
+    id_consulta  AUTO_INCREMENT PRIMARY KEY,
+    id_paciente  NOT NULL,
     fecha DATE,
     motivo VARCHAR(255),
     edad INT,
@@ -176,6 +176,35 @@ CREATE TABLE consultas (
     FOREIGN KEY (id_paciente)
     REFERENCES pacientes(id_paciente)
     ON DELETE CASCADE
+);
+
+CREATE TABLE doctores (
+    id  AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(150) NOT NULL,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE examenes_laboratorio (
+    id  T AUTO_INCREMENT PRIMARY KEY,
+    id_consulta  NOT NULL,
+    nombre_archivo VARCHAR(255),
+    tipo_archivo VARCHAR(100),
+    datos LONGBLOB,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_consulta_examen
+    FOREIGN KEY (id_consulta)
+    REFERENCES consultas(id_consulta)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE login_log (
+    id AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100),
+    ip VARCHAR(100),
+    rol VARCHAR(50),
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
