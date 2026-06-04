@@ -8,6 +8,7 @@
 Más info en [mi tablero de trello](https://trello.com/invite/b/69bc3ede73d188581baa1482/ATTI3f827d0ff18d1e9bfddfe0ef1a6bd47a27F9FC1E/proyecto-consultas-obymedic)
 ![TRELLO](recursos/programacion.png)
 
+
 Sistema web para la gestión de registros de historiales medicos de Obstetricia
 
 ## Descripcion del negocio
@@ -208,7 +209,6 @@ CREATE TABLE login_log (
 );
 ```
 
-> En producción se usa PostgreSQL (Neon). Las tablas las crea Hibernate automáticamente al arrancar.
 
 ## Como correr el proyecto
 
@@ -250,5 +250,4 @@ La app está desplegada en **Render** usando Docker. La base de datos en producc
 | Base de datos | Neon (PostgreSQL 17) | ep-steep-mud-apqfao2f.c-7.us-east-1.aws.neon.tech |
 | Monitoreo | UptimeRobot | Mantiene la app activa |
 
-## Sistema de backup
-- **Backup automático:** todos los lunes a las 7:00 AM UTC el sistema envía un archivo JSON al correo configurado.
+
