@@ -225,7 +225,6 @@ CREATE TABLE login_log (
 5. Ejecutar `ObymedicApplication.java`
 6. Abrir en el navegador: `http://localhost:8080`
 
-> El frontend está integrado en el backend. No es necesario correrlos por separado.
 
 ### Configuracion de base de datos (local)
 
