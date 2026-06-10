@@ -121,11 +121,6 @@ El sistema cuenta con 5 tablas principales:
 | examen_laboratorio | Archivos PDF de exámenes adjuntos a una consulta |
 | login_log | Registro de accesos al sistema |
 
-### Diagrama Entidad-Relacion (DER)
-![Diagrama Entidad Relacion](recursos/Diagrama_Entidad_Relacion.png)
-
-### Modelo Relacional (MR)
-![Modelo Relacional](recursos/Modelo_Relacional.png)
 
 ### DIAGRAMA DE FIGMA
 Más info en [Mi_Diseño_Figma](https://www.figma.com/design/F0hS7gps6mz5811iBBZVr8/Entregable-01?node-id=1-2&t=1I4VFzDYAzfZAZIh-1)
