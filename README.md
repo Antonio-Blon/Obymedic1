@@ -208,7 +208,8 @@ CREATE TABLE login_log (
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
-
+##  Imágenes del negocio
+![Diagrama_Entidad_Relacion](recursos/dia1.png)
 
 ## Como correr el proyecto
 
@@ -248,5 +249,11 @@ La app está desplegada en **Render** usando Docker. La base de datos en producc
 | Web Service | Render (Docker) | https://obymedic.onrender.com |
 | Base de datos | Neon (PostgreSQL 17) | ep-steep-mud-apqfao2f.c-7.us-east-1.aws.neon.tech |
 | Monitoreo | UptimeRobot | Mantiene la app activa |
+
+##  Imágenes del Programa En Negocio
+![Negocio](recursos/software1.png)
+##  Imágenes del Programa En Negocio
+![Negocio](recursos/software2.png)
+
 
 
