@@ -203,7 +203,7 @@ CREATE TABLE login_log (
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
-##  Imágenes del negocio
+##  Modelo Entidad Relacion
 ![Diagrama_Entidad_Relacion](recursos/dia1.png)
 
 ## Como correr el proyecto
