@@ -1,7 +1,7 @@
 # SISTEMA DE GESTION DE HISTORIAS CLINICAS - OBYMEDIC
 
 [![TRELLO](https://img.shields.io/badge/TRELLO-KANBAN-blue?style=for-the-badge&logo=trello&logoColor=white)](https://trello.com/invite/b/69bc3ede73d188581baa1482/ATTI3f827d0ff18d1e9bfddfe0ef1a6bd47a27F9FC1E/proyecto-consultas-obymedic)
-[![FIGMA](https://img.shields.io/badge/FIGMA-DISENO-red?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/F0hS7gps6mz5811iBBZVr8/Entregable-01?node-id=1-2&t=1I4VFzDYAzfZAZIh-1)
+[![FIGMA](https://img.shields.io/badge/FIGMA-DISENO-red?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/dFzpMUTmaB7KElQrPPwFOD/Sin-t%C3%ADtulo?node-id=0-1&t=KiShFYyaKIPP5eD5-1)
 [![RENDER](https://img.shields.io/badge/RENDER-DEPLOY-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://obymedic.onrender.com)
 
 ## TRELLO
