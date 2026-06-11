@@ -9,7 +9,7 @@ Más info en [mi tablero de trello](https://trello.com/invite/b/69bc3ede73d18858
 ![TRELLO](recursos/programacion.png)
 
 ### DIAGRAMA DE FIGMA
-Más info en [Mi_Diseño_Figma](https://www.figma.com/design/F0hS7gps6mz5811iBBZVr8/Entregable-01?node-id=1-2&t=1I4VFzDYAzfZAZIh-1)
+Más info en [Mi_Diseño_Figma](https://www.figma.com/design/dFzpMUTmaB7KElQrPPwFOD/Sin-t%C3%ADtulo?node-id=0-1&t=KiShFYyaKIPP5eD5-1)
 
 ![FIGMA](recursos/figma.png)
 
