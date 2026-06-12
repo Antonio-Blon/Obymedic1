@@ -66,15 +66,14 @@ Solucion tecnologica: Se desarrollará un Sistema Digital de Gestión de Histori
 
 ## Stack completo
 1. Trello             = Gestión del proyecto (Kanban)
-2. Draw.io            = Diagrama ER + Diagrama de Clases
-3. Figma              = Wireframe + Diseño UI/UX
-4. MySQL Workbench    = Diseñar y administrar BD local
-5. IntelliJ           = Frontend (HTML,CSS,JS) + Backend (Spring Boot)
-6. XAMPP              = MySQL para desarrollo local
-7. Docker             = Contenedor para despliegue en producción
-8. Render             = Hosting del Web Service (nube)
-9. Neon               = Base de datos PostgreSQL en producción (nube)
-10. UptimeRobot       = Monitoreo para mantener la app activa
+2. Figma              = Wireframe + Diseño UI/UX
+3. MySQL Workbench    = Diseñar y administrar BD local
+4. IntelliJ           = Frontend (HTML,CSS,JS) + Backend (Spring Boot)
+5. XAMPP              = MySQL para desarrollo local
+6. Docker             = Contenedor para despliegue en producción
+7. Render             = Hosting del Web Service (nube)
+8. Neon               = Base de datos PostgreSQL en producción (nube)
+9. UptimeRobot       = Monitoreo para mantener la app activa
 
 ## Tecnologias utilizadas
 - Java 21
@@ -87,13 +86,11 @@ Solucion tecnologica: Se desarrollará un Sistema Digital de Gestión de Histori
 - MySQL Workbench
 - Docker
 - Figma (diseño UI/UX)
-- Draw.io (diagramas)
-
+  
 ## APIs externas
 | API | Uso |
 |---|---|
 | apiperu.dev | Consulta DNI en RENIEC para autocompletar datos del paciente |
-| Gmail SMTP | Envío de backup semanal automático al correo |
 
 ## Estructura del proyecto
 
