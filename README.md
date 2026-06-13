@@ -203,35 +203,6 @@ CREATE TABLE login_log (
 ##  Modelo Entidad Relacion
 ![Diagrama_Entidad_Relacion](recursos/dia1.png)
 
-## Como correr el proyecto
-
-### Requisitos previos
-- JDK 21 o superior
-- XAMPP (para MySQL local)
-- IntelliJ IDEA
-
-### Correr en local
-1. Abrir la carpeta `Backend/` en IntelliJ IDEA
-2. Iniciar XAMPP y activar MySQL
-3. Crear la base de datos `obymedic` en phpMyAdmin
-4. Verificar `application.properties` con los datos de MySQL
-5. Ejecutar `ObymedicApplication.java`
-6. Abrir en el navegador: `http://localhost:8080`
-
-
-### Configuracion de base de datos (local)
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/obymedic?useSSL=false&serverTimezone=UTC
-spring.datasource.username=root
-spring.datasource.password=
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
-server.port=8080
-```
-
 ## Despliegue en produccion
 
 La app está desplegada en **Render** usando Docker. La base de datos en producción es **PostgreSQL en Neon**.
@@ -244,8 +215,9 @@ La app está desplegada en **Render** usando Docker. La base de datos en producc
 
 ##  Imágenes del Programa En Negocio
 ![Negocio](recursos/software1.png)
-##  Imágenes del Programa En Negocio
 ![Negocio](recursos/software2.png)
+![Negocio](recursos/software3.png)
+
 
 
 
